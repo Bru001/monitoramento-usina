@@ -1,21 +1,22 @@
-📊 Sistema de Monitoramento e Análise de Relatórios — Usina Santa Adélia
+# 📊 Sistema de Monitoramento e Análise de Relatórios — Usina Santa Adélia
 
-Sistema desktop desenvolvido em Python com interface gráfica moderna (CustomTkinter) para automatizar a captura de telas e relatórios operacionais, realizar análises inteligentes utilizando a Inteligência Artificial do Google (Gemini) e enviar os resultados e imagens diretamente para um canal ou chat no Telegram.
+Sistema desktop desenvolvido em **Python** com interface gráfica moderna (`CustomTkinter`) para automatizar a captura de telas e relatórios operacionais, realizar análises inteligentes utilizando a Inteligência Artificial do Google (**Gemini**) e enviar os resultados e imagens diretamente para um canal ou chat no **Telegram**.
 
-🚀 Funcionalidades
+---
 
-Captura Automatizada ou Manual: Permite capturar a tela inteira ou uma região personalizada da tela em intervalos regulares configuráveis.
+## 🚀 Funcionalidades
 
-Análise Inteligente (IA): Utiliza o modelo Gemini para interpretar o relatório na imagem, destacando métricas principais e alertando sobre anomalias ou desvios operacionais.
+- **Captura Automatizada ou Manual**: Permite capturar a tela inteira ou uma região personalizada da tela em intervalos regulares configuráveis.
+- **Análise Inteligente (IA)**: Utiliza o modelo Gemini para interpretar o relatório na imagem, destacando métricas principais e alertando sobre anomalias ou desvios operacionais.
+- **Envio via Telegram**: Dispara automaticamente a imagem capturada e o resumo gerado pela IA para o chat configurado.
+- **Alertas Antecipados**: Conta com contadores regressivos na tela e pop-ups flutuantes avisando quando uma nova captura está prestes a acontecer (5, 2 e 1 minuto antes).
+- **Logs de Execução**: Registra todas as atividades e eventos em tempo real tanto na interface gráfica quanto em um arquivo de log local (`historico_execucao.log`).
 
-Envio via Telegram: Dispara automaticamente a imagem capturada e o resumo gerado pela IA para o chat configurado.
+---
 
-Alertas Antecipados: Conta com contadores regressivos na tela e pop-ups flutuantes avisando quando uma nova captura está prestes a acontecer (5, 2 e 1 minuto antes).
+## 📂 Estrutura do Projeto
 
-Logs de Execução: Registra todas as atividades e eventos em tempo real tanto na interface gráfica quanto em um arquivo de log local (historico_execucao.log).
-
-📂 Estrutura do Projeto
-
+```text
 monitoramento-usina/
 ├── main.py                # Ponto de entrada do programa e controle do loop de tempo
 ├── interface.py           # Interface gráfica construída com CustomTkinter
@@ -26,52 +27,49 @@ monitoramento-usina/
 ├── main.spec              # Arquivo de configuração para compilação com PyInstaller
 ├── logo.png               # Logotipo da aplicação exibido na interface
 └── README.md              # Documentação oficial do projeto
+```
 
+---
 
-🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-Python 3.x
+- **Python 3.x**
+- **CustomTkinter** (Interface Gráfica)
+- **PyAutoGUI** (Captura de tela)
+- **Google GenAI SDK** (`google-genai` / Gemini Flash)
+- **Pillow (PIL)** (Manipulação de imagens)
+- **PyInstaller** (Empacotamento para executável `.exe`)
 
-CustomTkinter (Interface Gráfica)
+---
 
-PyAutoGUI (Captura de tela)
+## ⚙️ Configuração e Instalação
 
-Google GenAI SDK (google-genai / Gemini Flash)
+1. Clone o repositório ou baixe os arquivos para o seu computador:
+   ```bash
+   git clone https://github.com/SEU-USUARIO/monitoramento-usina-santa-adelia.git
+   ```
 
-Pillow (PIL) (Manipulação de imagens)
+2. Instale as dependências necessárias via terminal:
+   ```bash
+   pip install customtkinter pillow pyautogui google-genai
+   ```
 
-PyInstaller (Empacotamento para executável .exe)
+3. Configure as suas credenciais diretamente na interface gráfica do aplicativo (Aba *Telegram & IA*) ou criando um arquivo `config.json`:
+   - Token do Bot do Telegram
+   - Chat ID do Telegram
+   - Chave da API do Gemini (`gemini_api_key`)
 
-⚙️ Configuração e Instalação
+4. Execute o sistema:
+   ```bash
+   python main.py
+   ```
 
-Clone o repositório ou baixe os arquivos para o seu computador:
+---
 
-git clone https://github.com/SEU-USUARIO/monitoramento-usina-santa-adelia.git
-
-
-Instale as dependências necessárias via terminal:
-
-pip install customtkinter pillow pyautogui google-genai
-
-
-Configure as suas credenciais diretamente na interface gráfica do aplicativo (Aba Telegram & IA) ou criando um arquivo config.json:
-
-Token do Bot do Telegram
-
-Chat ID do Telegram
-
-Chave da API do Gemini (gemini_api_key)
-
-Execute o sistema:
-
-python main.py
-
-
-📦 Como Gerar o Executável (.exe)
+## 📦 Como Gerar o Executável (`.exe`)
 
 Se desejar gerar um aplicativo executável independente para rodar no Windows sem precisar do interpretador Python instalado:
-
+```bash
 pyinstaller main.spec
-
-
-(O executável será gerado dentro da pasta dist/).
+```
+*(O executável será gerado dentro da pasta `dist/`).*
